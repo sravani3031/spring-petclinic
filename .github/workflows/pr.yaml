@@ -1,4 +1,4 @@
-```````````````name: pr-workflow
+name: pr-workflow
 
 on:
     pull_request:
