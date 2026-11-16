@@ -11,20 +11,23 @@ on:
         branches:
           - dev
 
- 
-
-
 jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - name: get the code
-              uses: actions/checkout@v6
-            - name: compile the code
-              run: mvn compile
-            - name: test the code
-              run: mvn test
-            - name: create the package
-
-
-              run: mvn package
+            
+          - name: get the code
+            uses: actions/checkout@v6
+          - name: Initialize CodeQL
+            uses: github/codeql-action/init@v4
+            with:
+                languages: java
+          - name: package the code
+            run: mvn package
+          - name: Perform code quality analysis
+            uses: github/codeql-action/analyze@v4
+          - name: publish test results
+            uses: EnricoMi/publish-unit-test-result-action@v2
+            with:
+                files: "**/target/surefire-reports/**/*.xml"
+                comment_mode: always
