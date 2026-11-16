@@ -9,9 +9,6 @@ on:
         branches:
           - dev
 
- 
-
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -23,6 +20,4 @@ jobs:
             - name: test the code
               run: mvn test
             - name: create the package
-
-
               run: mvn package
