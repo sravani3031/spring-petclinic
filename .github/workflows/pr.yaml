@@ -1,5 +1,3 @@
-
-
 ---
 # This workflow will execute on pull request to dev branch
 
@@ -9,7 +7,6 @@ on:
     pull_request:
         branches:
           - dev
-
 jobs:
     build:
         runs-on: ubuntu-latest
